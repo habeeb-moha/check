@@ -7,11 +7,11 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 // MongoDB connection
-mongoose.connect('mongodb+srv://user_dev1:lRDhbZKiiqoVxDLQ@cluster0.xnczqb3.mongodb.net/merncrud', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+mongoose.connect('mongodb://localhost:27017/merncrud', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 }).then(() => console.log('MongoDB Connected'))
-.catch(err => console.log(err));
+  .catch(err => console.log(err));
 // Schema and Model
 const ItemSchema = new mongoose.Schema({
     name: String,
@@ -38,3 +38,12 @@ app.delete('/items/:id', async (req, res) => {
 });
 // Start server
 app.listen(5000, () => console.log('Server running on port 5000'));
+
+
+
+
+
+
+
+
+
